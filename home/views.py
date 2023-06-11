@@ -5,16 +5,19 @@ from django.contrib import messages
 
 
 def home(request):
-    form = ContactForm(request.POST or None)
-    errors = None
-    if form.is_valid():
-        form.save()
-        messages.add_message(request, messages.SUCCESS, "Success! Thank you for your message.")
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-    if form.errors:
-        errors = form.errors
+    if request.method == "POST":
+        form = ContactForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, "Success! Thank you for your message.")
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+        else:
+            messages.add_message(request, messages.WARNING, "Please try again !")
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        form = ContactForm()
     context = {
-        'form': form,
-        'errors': errors,
+        'from': form,
     }
     return render(request, "home/index.html", context)
