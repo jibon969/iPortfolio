@@ -1,10 +1,13 @@
 from django.shortcuts import render
-from django.contrib import messages
 
 
 def home(request):
     return render(request, "home/index.html")
 
 
-def about_me(request):
-    return render(request, 'home/about-me.html')
+def about(request):
+    return render(request, 'home/about.html')
+
+
+def contact(request):
+    return render(request, 'home/contact.html')
