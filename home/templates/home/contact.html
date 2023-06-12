@@ -3,6 +3,52 @@
 {% block title %}Contact Me - {{ block.super }}{% endblock %}
 
 {% block content %}
-
-
+    <div class="container">
+        <h2 class="contact-title text-center">Contact</h2>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-4">
+                <hr>
+                <h4 class="text-center">I usually prefer that you email me or leave me a message on Facebook.</h4>
+                <hr>
+                <form action="#">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <input type="text" name="name" class="form-control mb-3"
+                                   required="required" data-error="Name is required."
+                                   placeholder="Name *">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" name="email" class="form-control mb-3"
+                                   required="required" data-error="Valid email is required."
+                                   placeholder="E-mail *">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea name="message" class="form-control mb-3"
+                                          placeholder="Write your message *" rows="5" required="required"
+                                          data-error="Please, leave us a message">
+                                </textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-center">
+                        <button type="submit" class="btn btn-secondary btn-block">Send message</button>
+                    </h3>
+                </form>
+                <hr>
+                <h6><span class="font-weight-bold mr-2">Email : </span>jayed.swe@gmail.com</h6>
+                <h6><span class="font-weight-bold mr-2">Skype : </span>jayed.swe@gmail.com</h6>
+                <h6><span class="font-weight-bold mr-2">Phone : </span> +880 1987 132107</h6>
+                <h6>
+                    <span class="font-weight-bold mr-2">Facebook : </span>
+                    <a href="https://www.facebook.com/jibon969">https://www.facebook.com/jibon969</a>
+                </h6>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
