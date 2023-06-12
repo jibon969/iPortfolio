@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ block.super }}{% endblock %}
+{% block styesheet %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css"/>
+{% endblock %}
+
+{% block content %}
+
+    <section class="gallery-block cards-gallery">
+        <div class="container">
+            <div class="heading">
+                <h2>Project</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 transform-on-hover">
+                        <a class="lightbox" href="{% static 'image/project/image.jpg' %}">
+                            <img src="{% static 'image/project/image.jpg' %}" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h6><a href="#">Lorem Ipsum</a></h6>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 transform-on-hover">
+                        <a class="lightbox" href="{% static 'image/project/image6.jpg' %}">
+                            <img src="{% static 'image/project/image6.jpg' %}" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h6><a href="#">Lorem Ipsum</a></h6>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 transform-on-hover">
+                        <a class="lightbox" href="{% static 'image/project/image4.jpg' %}">
+                            <img src="{% static 'image/project/image4.jpg' %}" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h6><a href="#">Lorem Ipsum</a></h6>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 transform-on-hover">
+                        <a class="lightbox" href="{% static 'image/project/image.jpg' %}">
+                            <img src="{% static 'image/project/image.jpg' %}" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h6><a href="#">Lorem Ipsum</a></h6>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 transform-on-hover">
+                        <a class="lightbox" href="{% static 'image/project/image6.jpg' %}">
+                            <img src="{% static 'image/project/image6.jpg' %}" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h6><a href="#">Lorem Ipsum</a></h6>
+                            <p class="text-muted card-text">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border-0 transform-on-hover">
+                        <a class="lightbox" href="{% static 'image/project/image4.jpg' %}">
+                            <img src="{% static 'image/project/image4.jpg' %}" alt="Card Image" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <h6><a href="#">Lorem Ipsum</a></h6>
+                            <p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Nunc quam urna.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.cards-gallery', {animation: 'slideIn'});
+    </script>
+{% endblock %}
