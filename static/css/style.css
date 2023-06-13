@@ -534,3 +534,10 @@ img {
     background: #fefefe;
     border-color: black;
 }
+
+/*==============================
+    project-section
+=================================*/
+#project-section {
+    padding-top: 4.5rem;
+}
