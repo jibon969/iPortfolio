@@ -5,6 +5,9 @@ def home(request):
     return render(request, "home/index.html")
 
 
+def blog(request):
+    return render(request, "home/blog.html")
+
 def detail(request):
     return render(request, "home/details.html")
 
@@ -16,6 +19,3 @@ def about(request):
 def project(request):
     return render(request, 'home/project.html')
 
-
-def contact(request):
-    return render(request, 'home/contact.html')

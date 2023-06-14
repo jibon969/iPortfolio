@@ -1,4 +1,9 @@
- <div class="container">
+{% extends 'base.html' %}
+
+{% block title %} Blog - {{ block.super }}  {% endblock %}
+
+{% block content %}
+    <div class="container">
         <div class="home-header">
             <div class="home-title">
                 <h2>Jayed Hossain Jibon</h2>
@@ -68,3 +73,4 @@
             </div>
         </div>
     </div>
+{% endblock content %}
