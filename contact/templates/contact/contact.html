@@ -15,12 +15,13 @@
                 <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-5">
                     <h4 class="text-center">I usually prefer that you email me or leave me a message on Facebook.</h4>
                     <hr>
-                    <form action="#" class="mb-4">
+                    <form action="#" method="POST" class="mb-4">
+                        {% csrf_token %}
                         <div class="form-row">
                             <div class="col-md-6">
-                                <input type="text" name="name" class="form-control mb-3"
+                                <input type="text" name="subject" class="form-control mb-3"
                                        required="required" data-error="Name is required."
-                                       placeholder="Name *">
+                                       placeholder="Subject *">
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="col-md-6">
