@@ -12,64 +12,24 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-4">
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="{% url 'blog-detail' %}" class="blog-list">Django REST Framework: Using the request object
-                                <span class="mx-1 text-secondary">/  Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#" class="post-list">Django REST Framework: Using the request object
-                                /<span class="mx-1 text-secondary">Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#" class="post-list">Django REST Framework: Using the request object
-                                /<span class="mx-1 text-secondary">Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#" class="post-list">Django REST Framework: Using the request object
-                                /<span class="mx-1 text-secondary">Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#" class="post-list">Django REST Framework: Using the request object
-                                /<span class="mx-1 text-secondary">Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#" class="post-list">Django REST Framework: Using the request object
-                                /<span class="mx-1 text-secondary">Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#" class="post-list">Django REST Framework: Using the request object
-                                /<span class="mx-1 text-secondary">Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#" class="post-list">Django REST Framework: Using the request object
-                                /<span class="mx-1 text-secondary">Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#" class="post-list">Django REST Framework: Using the request object
-                                /<span class="mx-1 text-secondary">Published Sat, June 2023</span>
-                            </a>
-                        </li>
-                    </ul>
+                    {% if object_list %}
+                        {% for blog in object_list %}
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="{% url 'blog-detail' blog.slug %}" class="blog-list">
+                                        {{ blog.title }}
+                                        <span class="mx-1 text-secondary">/  {{ blog.timestamp }}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        {% endfor %}
+                    {% else %}
+                        <h2 class="text-center">Blog is coming ...</h2>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </section>
 
 {% endblock content %}
+
