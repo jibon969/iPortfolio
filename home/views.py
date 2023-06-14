@@ -5,13 +5,6 @@ def home(request):
     return render(request, "home/index.html")
 
 
-def blog(request):
-    return render(request, "home/blog.html")
-
-def detail(request):
-    return render(request, "home/details.html")
-
-
 def about(request):
     return render(request, 'home/about.html')
 
