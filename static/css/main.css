@@ -209,3 +209,32 @@ footer{
     margin: 15px 0;
     text-align: center;
 }
+
+.project-overview .card {
+    border-color: #e7e9ed;
+    position: relative;
+    height: 100%
+}
+
+.project-overview .card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    background: #f4fcf6
+}
+
+.project-overview .card:hover .card-icon-holder {
+    background: #fff
+}
+
+.project-overview .card-icon-holder {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    display: inline-block
+}
+
+.project-overview .card-title-text {
+    display: inline-block;
+    position: relative;
+    top: -0.3rem
+}

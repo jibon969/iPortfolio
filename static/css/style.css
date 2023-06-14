@@ -104,42 +104,7 @@ img {
     border-radius: 4px;
 }
 
-.docs-overview .card {
-    border-color: #e7e9ed;
-    position: relative;
-    height: 100%
-}
 
-.docs-overview .card:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-    background: #f4fcf6
-}
-
-.docs-overview .card:hover .card-icon-holder {
-    background: #fff
-}
-
-.docs-overview .card-icon-holder {
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
-    padding-top: 1rem;
-    display: inline-block
-}
-
-.docs-overview .card-title-text {
-    display: inline-block;
-    position: relative;
-    top: -0.3rem
-}
-
-.docs-overview .card-link-mask {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0
-}
 
 .theme-icon-holder {
     font-size: 0.875rem;
