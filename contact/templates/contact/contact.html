@@ -10,6 +10,20 @@
                 <div class="contact-title">
                     <h2>Contact</h2>
                 </div>
+                <!-- Massage Framework -->
+                <div class="message-framework">
+                    {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible" role="alert"
+                             style="margin-bottom: 0 !important;">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <div class="text-center">
+                                <span>{{ message }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-5">
