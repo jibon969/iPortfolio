@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.db.models import Q
 from django.contrib import messages
 from .models import (
-    Category, 
+    Category,
     Blog,
     Comment,
 )
@@ -54,7 +54,7 @@ def blog_detail(request, slug):
     related_post = Blog.objects.filter(category=category)
     comments = post.comments.filter(approve=True)
     new_comment = None
-    
+
     # Comment posted
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
@@ -68,29 +68,6 @@ def blog_detail(request, slug):
             new_comment.save()
     else:
         comment_form = CommentForm()
-    
-    # Replay Comment
-    # post = get_object_or_404(Blog, slug=slug)
-    # replay = Comment.objects.filter(post=post, approve=True).order_by('created_on')
-    # if request.method == 'POST':
-    #     reply_form = ReplyForm(request.POST)
-    #     if reply_form.is_valid():
-    #         reply = reply_form.save(commit=False)
-    #         reply.comment = comment
-    #         reply.save()
-    # else:
-    #     reply_form = ReplyForm()
-
-    post = get_object_or_404(Blog, slug=slug)
-    replay = Comment.objects.filter(post=post, approve=True).order_by('created_on')
-    if request.method == 'POST':
-        reply_form = ReplyForm(request.POST)
-        if reply_form.is_valid():
-            reply = reply_form.save(commit=False)
-            reply.reply = replay
-            reply.save()
-    else:
-        reply_form = ReplyForm()
 
     context = {
         'object': post,
@@ -99,10 +76,5 @@ def blog_detail(request, slug):
         'comment_form': comment_form,
         'related_post': related_post,
 
-        # 'post': post, 
-        'replay': replay,
-        'reply_form': reply_form
-        # 'reply_form': reply_form
-       
     }
     return render(request, "blog/blog-details.html", context)

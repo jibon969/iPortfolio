@@ -1,5 +1,12 @@
 from django.contrib import admin
 from .models import Category, Blog, Comment, Reply
+from django_summernote.admin import SummernoteModelAdmin
+
+
+@admin.register(Blog)
+class YourModelAdmin(SummernoteModelAdmin):
+    # Specify the fields you want to use Summernote for
+    summernote_fields = ('description',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -14,21 +21,10 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Category, CategoryAdmin)
 
 
-class BlogAdmin(admin.ModelAdmin):
-    list_per_page = 20
-    list_display = ['title']
-    search_fields = ['title']
-
-    class Meta:
-        model = Blog
-
-
-admin.site.register(Blog, BlogAdmin)
-
-
 class CommentAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display = ['name', 'email']
+    list_display = ['name', 'email', 'body', 'approve']
+    list_editable = ['approve']
     search_fields = ['name', 'email']
 
     class Meta:
@@ -40,8 +36,9 @@ admin.site.register(Comment, CommentAdmin)
 
 class ReplyAdmin(admin.ModelAdmin):
     list_per_page = 20
-    list_display = ['name',]
+    list_display = ['name', 'body', 'approve']
     search_fields = ['name']
+    list_editable = ['approve']
 
     class Meta:
         model = Reply

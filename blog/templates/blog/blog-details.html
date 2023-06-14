@@ -24,7 +24,7 @@
                         <div class="related-post my-5">
                             {% if related_post.exits %}
                                 <hr>
-                                <h6 class="font-weight-bold">You can also read</h2>
+                                <h6 class="font-weight-bold">You can also read</h6>
                                 <hr>
                                 <div class="row">
                                     <div class="top-content">
@@ -34,9 +34,12 @@
                                                     <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
                                                         <div class="card">
                                                             {% if post.image %}
-                                                                <img src="{{ post.image.urls }}" height="80" class="img-fluid mx-auto d-block" alt="img1">
+                                                                <img src="{{ post.image.urls }}" height="80"
+                                                                     class="img-fluid mx-auto d-block" alt="img1">
                                                             {% else %}
-                                                                <img src="{% static 'images/project/blog.jpg' %}" height="80" class="img-fluid mx-auto d-block" alt="img1">
+                                                                <img src="{% static 'images/project/blog.jpg' %}"
+                                                                     height="80" class="img-fluid mx-auto d-block"
+                                                                     alt="img1">
                                                             {% endif %}
                                                             <div class="card-body p-1">
                                                                 <p>{{ post.title }}</p>
@@ -45,12 +48,17 @@
                                                     </div>
                                                 {% endfor %}
                                             </div>
-                                            <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                                            <a class="carousel-control-prev" href="#carousel-example" role="button"
+                                               data-slide="prev">
+                                                <span class="carousel-control-prev-icon bg-dark"
+                                                      aria-hidden="true"></span>
                                                 <span class="sr-only">Previous</span>
                                             </a>
-                                            <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+                                            <a class="carousel-control-next" href="#carousel-example" role="button"
+                                               data-slide="next">
+                                                <span class="carousel-control-next-icon bg-dark"
+                                                      aria-hidden="true">
+                                                </span>
                                                 <span class="sr-only">Next</span>
                                             </a>
                                         </div>
@@ -64,20 +72,23 @@
 
                         <div class="comment-section mb-4">
                             <hr>
-                            <h6 class="font-weight-bold">{{ comments.count }} comments</h2>
+                            <h6 class="font-weight-bold">{{ comments.count }} comments</h6>
                             <hr>
                             <div class="card">
                                 <div class="card-body">
                                     <!-- Comment & Replay -->
                                     {% for comment in comments %}
                                         <div class="d-flex flex-start">
-                                            <img class="rounded-circle shadow-1-strong mr-3" src="{% static 'images/project/blog.jpg' %}" alt="avatar" width="65" height="65" />
+                                            <img class="rounded-circle shadow-1-strong mr-3"
+                                                 src="{% static 'images/profile/avator.png' %}" alt="avatar" width="65"
+                                                 height="65"/>
                                             <div class="flex-grow-1 flex-shrink-1">
                                                 <!-- Comment -->
                                                 <div class="show-comment">
                                                     <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="mb-1"> {{ comment.name }} <span class="small">-  {{ comment.created_on }}</span></p>
-                                                        <a href="#!">
+                                                        <p class="mb-1"> {{ comment.name }} <span
+                                                                class="small">- {{ comment.created_on }}</span></p>
+                                                        <a href="#">
                                                             <i class="fa fa-reply fa-xs"></i>
                                                             <span class="small"> reply</span>
                                                         </a>
@@ -88,23 +99,21 @@
                                                 {% for reply in comment.replies.all %}
                                                     <div class="d-flex flex-start mt-4">
                                                         <a class="mr-3" href="#">
-                                                            <img class="rounded-circle shadow-1-strong" src="{% static 'images/project/blog.jpg' %}" alt="avatar" width="65" height="65" />
+                                                            <img class="rounded-circle shadow-1-strong"
+                                                                 src="{% static 'images/profile/avator.png' %}"
+                                                                 alt="avatar" width="65" height="65"/>
                                                         </a>
                                                         <div class="flex-grow-1 flex-shrink-1">
                                                             <div>
                                                                 <div class="d-flex justify-content-between align-items-center">
-                                                                    <p class="mb-1">{{ reply.name }} <span class="small">- {{ reply.created_on }}</span></p>
+                                                                    <p class="mb-1">{{ reply.name }} <span
+                                                                            class="small">- {{ reply.created_on }}</span>
+                                                                    </p>
                                                                 </div>
                                                                 <p class="small mb-0">{{ reply.body }}</p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Reply form for each comment -->
-                                                    <form method="POST" action="#">
-                                                        {% csrf_token %}
-                                                        {{ reply_form.as_p }}
-                                                        <button type="submit">Reply</button>
-                                                    </form>
                                                 {% endfor %}
                                             </div>
                                         </div>
@@ -119,32 +128,37 @@
                                         </div>
                                     {% else %}
                                         <h3 class="mb-3">Leave a comment</h3>
-                                        <form method="post">
+                                        <form method="post" action=".">
                                             {% csrf_token %}
                                             <div class="form-row">
                                                 <div class="col-md-6 mb-3">
-                                                    <input type="text" name="name" placeholder="Please enter your name *" class="form-control" required>
+                                                    <input type="text" name="name"
+                                                           placeholder="Please enter your name *" class="form-control"
+                                                           required>
                                                 </div>
                                                 <div class="col-md-6 mb-3">
-                                                    <input type="email" name="email" placeholder="Please enter e-mail address" class="form-control">
+                                                    <input type="email" name="email"
+                                                           placeholder="Please enter e-mail address"
+                                                           class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="col mb-3">
-                                                    <textarea class="form-control" name="body" rows="4" placeholder="Enter your comment"></textarea>
+                                                    <textarea class="form-control" name="body" rows="4"
+                                                              placeholder="Enter your comment"></textarea>
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </form>
                                     {% endif %}
                                 </div>
-                              </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>   
+        </div>
+        </div>
     </section>
 
 {% endblock content %}
