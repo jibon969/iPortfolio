@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="main-section mb-5">
-                            <p class="text-justify">{{ object.description }}</p>
+                            <p class="text-justify">{{ object.description|safe }}</p>
                         </div>
                         <div class="related-post my-5">
                             {% if related_post.exits %}
