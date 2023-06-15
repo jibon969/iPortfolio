@@ -85,4 +85,31 @@
         </div>
     </section>
 
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/notifications/',  // Replace with the actual URL
+                success: function (data) {
+                    // Handle the received data and update the UI
+                    for (let i = 0; i < data.length; i++) {
+                        const notification = data[i];
+                        console.log(notification.message, notification.created_at);
+                        // Update UI with the notification data
+                    }
+                }
+            });
+        });
+
+    </script>
+
+
+
+    {#    {% block js %}#}
+    {#        <script>#}
+    {#        #}
+    {#        </script>#}
+    {#    {% endblock js %}#}
+
 {% endblock content %}
