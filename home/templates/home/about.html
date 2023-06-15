@@ -11,127 +11,144 @@
                     <h2>About</h2>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-4">
-                    <p class="text-justify">
-                        I have over 3 years of experience as a software engineer, and have worked at both small startups
-                        and
-                        large organizations.
-                        While I'm a proficient full-stack developer, my expertise is in building scalable backend
-                        services
-                        (API services, stream processing, and async mechanisms).
-                    </p>
-                    <p class="text-justify">
-                        I love music, dance, reading book, hacking and playing cricket.
-                        I contribute to open source projects at leisure.
-                        I would love to pursue challenging opportunities which contribute to a better tomorrow for all
-                        of
-                        us!
-                    </p>
-                    <h2 class="font-weight-bold my-3">What is in my skill set?</h2>
-                    <p class="text-justify">
-                        I am a <span class="font-weight-bold">full stack developer</span>
-                        with extensive experience in Web Application.
-                        I have played with a lot of tools and toys. However, I would call these my primary skills:
-                    </p>
-                    <h3 class="font-weight-bold my-3">Python:</h3>
-                    <p>
-                        You can call me a dedicated Python Developer.
-                        I love all things Python.
-                        I have 3 years of working experience with different Python tools and toys.
-                    </p>
-                    <ul class="ml-4">
-                        <li>Django</li>
-                        <li>Django Rest Framework</li>
-                    </ul>
-                    <h3 class="font-weight-bold my-3">Front End :</h3>
-                    <p class="text-justify">
-                        I have mostly worked as a backend developer during my career over the past 1-2 years.
-                        But I have had my share of front end development too.
-                        I am definitely <span class="font-weight-bold">not</span> a kickass front end ninja but I do
-                        know
-                        more than enough HTML, CSS and JavaScript to build decent Web UIs and mobile applications.
-                    </p>
-                    <ul class="ml-4">
-                        <li>JavaScript</li>
-                        <li>jQuery</li>
-                        <li>Dom</li>
-                        <li>Json</li>
-                        <li>ReactJS</li>
-                        <li>NextJS</li>
-                        <li>Bootstrap</li>
-                        <li>Css Grid</li>
-                        <li>CSS Flexbox</li>
-                    </ul>
-                    <p>I am learning ES2018 and beyond for writing cleaner codes.</p>
-                    <h3 class="font-weight-bold my-3">Mobile application:</h3>
-                    <p>Building iOS and Android Apps Using <span class="font-weight-bold">React native</span></p>
-                    <h3 class="font-weight-bold my-3">Tool Set: </h3>
-                    <p class="text-justify">
-                        I know <span class="font-weight-bold">git</span> and work on
-                        <span class="font-weight-bold">OS X. </span>
-                        I am also a big fan of <span class="font-weight-bold">Docker</span> and find it a painless
-                        solution
-                        to develop and deploy my applications.
-                        I have working experience with <span class="font-weight-bold">MySQL</span>,
-                        <span class="font-weight-bold">PostgreSQL</span> and
-                        <span class="font-weight-bold">SQLs</span> as well.
-                        I will not only <span class="font-weight-bold">build</span> your app but also
-                        <span class="font-weight-bold">deploy</span> it to cloud providers like heroku, Digital Ocean,
-                        or
-                        any VPS.
-                        I am a believer in <span class="font-weight-bold">code quality</span> and follow the best
-                        practices.
-                        I use <span class="font-weight-bold">Jetbrains IDEs</span> for optimum productivity and cleaner
-                        codes.
-                        I believe every developer should write <span class="font-weight-bold">unit tests</span>
-                        before starting to write business logic. BDD and <span class="font-weight-bold">TDD</span> are
-                        my
-                        super secret ninja skills against bugs.
-                    </p>
-                    <p class="text-justify">
-                        While I am mostly focused on Python, and Javascript, I love learning new technologies and adapt
-                        new tools to solve challenging problems. I have decent expertise in these tools too:
-                    </p>
-                    <p class="text-justify">
-                        <span class="font-weight-bold">Redis:</span>
-                        I have used it as message queue, cache and data store.</p>
-                    <p class="text-justify">
-                        <span class="font-weight-bold">Golang:</span>
-                        I am a big fan of it’s concurrency model, simple syntax and a nice standard library.
-                        I have written several command line tools in the language.
-                        Cross compilation and the go fmt tool is a big plus for me.
-                    </p>
-                    <h2 class="font-weight-bold my-3">What do I want to learn next?</h2>
-                    <ul class="ml-4">
-                        <li>Machine Learning</li>
-                        <li>Data Science</li>
-                        <li>Natural Language Processing</li>
-                        <li>Design Patterns in Python</li>
-                    </ul>
-                    <h2 class="font-weight-bold my-3">How can I add value to your business?</h2>
-                    <p class="text-justify">
-                        I have a very keen interest in growth hacking.
-                        I try to understand the business process and add values to both customers and the business.
-                        I assume ownership and lead by example.
-                        I think out of the box and bring novelty to the table.
-                        <br>
-                        <br>
-                        I translate the <span class="font-weight-bold">business requirements</span> into
-                        <span class="font-weight-bold">agile</span>
-                        software development practices and stride to achieve enhanced
-                        <span class="font-weight-bold">value creation</span> for all of us!
-                    </p>
-                    <h2 class="font-weight-bold my-3">Community Engagement</h2>
-                    <ul class="text-danger ml-4">
-                        <li>Python Bangladesh</li>
-                        <li>Talk.js</li>
-                        <li>BASIS Student's Forum DIU Chapter</li>
-                        <li>Bangladesh Innovation Forum</li>
-                        <li>Django-community -DIU</li>
-                    </ul>
+            {% if about_skill %}
+                <div class="row justify-content-center">
+                    {% for skill in about_skill %}
+                        <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-4">
+                            <p class="text-justify">{{ skill.description }}</p>
+                        </div>
+                    {% endfor %}
                 </div>
-            </div>
+            {% else %}
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-4">
+                        <p class="text-justify">
+                            I have over 3 years of experience as a software engineer, and have worked at both small
+                            startups
+                            and
+                            large organizations.
+                            While I'm a proficient full-stack developer, my expertise is in building scalable backend
+                            services
+                            (API services, stream processing, and async mechanisms).
+                        </p>
+                        <p class="text-justify">
+                            I love music, dance, reading book, hacking and playing cricket.
+                            I contribute to open source projects at leisure.
+                            I would love to pursue challenging opportunities which contribute to a better tomorrow for
+                            all
+                            of
+                            us!
+                        </p>
+                        <h2 class="font-weight-bold my-3">What is in my skill set?</h2>
+                        <p class="text-justify">
+                            I am a <span class="font-weight-bold">full stack developer</span>
+                            with extensive experience in Web Application.
+                            I have played with a lot of tools and toys. However, I would call these my primary skills:
+                        </p>
+                        <h3 class="font-weight-bold my-3">Python:</h3>
+                        <p>
+                            You can call me a dedicated Python Developer.
+                            I love all things Python.
+                            I have 3 years of working experience with different Python tools and toys.
+                        </p>
+                        <ul class="ml-4">
+                            <li>Django</li>
+                            <li>Django Rest Framework</li>
+                        </ul>
+                        <h3 class="font-weight-bold my-3">Front End :</h3>
+                        <p class="text-justify">
+                            I have mostly worked as a backend developer during my career over the past 1-2 years.
+                            But I have had my share of front end development too.
+                            I am definitely <span class="font-weight-bold">not</span> a kickass front end ninja but I do
+                            know
+                            more than enough HTML, CSS and JavaScript to build decent Web UIs and mobile applications.
+                        </p>
+                        <ul class="ml-4">
+                            <li>JavaScript</li>
+                            <li>jQuery</li>
+                            <li>Dom</li>
+                            <li>Json</li>
+                            <li>ReactJS</li>
+                            <li>NextJS</li>
+                            <li>Bootstrap</li>
+                            <li>Css Grid</li>
+                            <li>CSS Flexbox</li>
+                        </ul>
+                        <p>I am learning ES2018 and beyond for writing cleaner codes.</p>
+                        <h3 class="font-weight-bold my-3">Mobile application:</h3>
+                        <p>Building iOS and Android Apps Using <span class="font-weight-bold">React native</span></p>
+                        <h3 class="font-weight-bold my-3">Tool Set: </h3>
+                        <p class="text-justify">
+                            I know <span class="font-weight-bold">git</span> and work on
+                            <span class="font-weight-bold">OS X. </span>
+                            I am also a big fan of <span class="font-weight-bold">Docker</span> and find it a painless
+                            solution
+                            to develop and deploy my applications.
+                            I have working experience with <span class="font-weight-bold">MySQL</span>,
+                            <span class="font-weight-bold">PostgreSQL</span> and
+                            <span class="font-weight-bold">SQLs</span> as well.
+                            I will not only <span class="font-weight-bold">build</span> your app but also
+                            <span class="font-weight-bold">deploy</span> it to cloud providers like heroku, Digital
+                            Ocean,
+                            or
+                            any VPS.
+                            I am a believer in <span class="font-weight-bold">code quality</span> and follow the best
+                            practices.
+                            I use <span class="font-weight-bold">Jetbrains IDEs</span> for optimum productivity and
+                            cleaner
+                            codes.
+                            I believe every developer should write <span class="font-weight-bold">unit tests</span>
+                            before starting to write business logic. BDD and <span class="font-weight-bold">TDD</span>
+                            are
+                            my
+                            super secret ninja skills against bugs.
+                        </p>
+                        <p class="text-justify">
+                            While I am mostly focused on Python, and Javascript, I love learning new technologies and
+                            adapt
+                            new tools to solve challenging problems. I have decent expertise in these tools too:
+                        </p>
+                        <p class="text-justify">
+                            <span class="font-weight-bold">Redis:</span>
+                            I have used it as message queue, cache and data store.</p>
+                        <p class="text-justify">
+                            <span class="font-weight-bold">Golang:</span>
+                            I am a big fan of it’s concurrency model, simple syntax and a nice standard library.
+                            I have written several command line tools in the language.
+                            Cross compilation and the go fmt tool is a big plus for me.
+                        </p>
+                        <h2 class="font-weight-bold my-3">What do I want to learn next?</h2>
+                        <ul class="ml-4">
+                            <li>Machine Learning</li>
+                            <li>Data Science</li>
+                            <li>Natural Language Processing</li>
+                            <li>Design Patterns in Python</li>
+                        </ul>
+                        <h2 class="font-weight-bold my-3">How can I add value to your business?</h2>
+                        <p class="text-justify">
+                            I have a very keen interest in growth hacking.
+                            I try to understand the business process and add values to both customers and the business.
+                            I assume ownership and lead by example.
+                            I think out of the box and bring novelty to the table.
+                            <br>
+                            <br>
+                            I translate the <span class="font-weight-bold">business requirements</span> into
+                            <span class="font-weight-bold">agile</span>
+                            software development practices and stride to achieve enhanced
+                            <span class="font-weight-bold">value creation</span> for all of us!
+                        </p>
+                        <h2 class="font-weight-bold my-3">Community Engagement</h2>
+                        <ul class="text-danger ml-4">
+                            <li>Python Bangladesh</li>
+                            <li>Talk.js</li>
+                            <li>BASIS Student's Forum DIU Chapter</li>
+                            <li>Bangladesh Innovation Forum</li>
+                            <li>Django-community -DIU</li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+
         </div>
     </section>
 
