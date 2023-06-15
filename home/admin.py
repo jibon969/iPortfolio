@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import Contact
+from .models import Project
 
 
-class ContactAdmin(admin.ModelAdmin):
+class ProjectAdmin(admin.ModelAdmin):
     list_display = ['name', 'email']
 
     class Meta:
-        model = Contact
+        model = Project
 
 
-admin.site.register(Contact, ContactAdmin)
+admin.site.register(Project, ProjectAdmin)
