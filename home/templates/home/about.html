@@ -15,7 +15,7 @@
                 <div class="row justify-content-center">
                     {% for skill in about_skill %}
                         <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-4">
-                            <p class="text-justify">{{ skill.description }}</p>
+                            <p class="text-justify">{{ skill.description|safe }}</p>
                         </div>
                     {% endfor %}
                 </div>
