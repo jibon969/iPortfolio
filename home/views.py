@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Project
 
 
 def home(request):
@@ -10,5 +11,9 @@ def about(request):
 
 
 def project(request):
-    return render(request, 'home/project.html')
+    queryset = Project.objects.all()
+    context = {
+        'queryset': queryset
+    }
+    return render(request, 'home/project.html', context)
 
