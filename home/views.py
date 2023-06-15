@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Project
+from .models import Project, AboutSkill
 
 
 def home(request):
@@ -7,7 +7,11 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'home/about.html')
+    about_skill = AboutSkill.objects.all()
+    context = {
+        'about_skill': about_skill
+    }
+    return render(request, 'home/about.html', context)
 
 
 def project(request):
