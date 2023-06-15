@@ -20,7 +20,8 @@
     <body>
 
     <header class="section-header">
-        <nav class="navbar navbar-landing navbar-expand-lg navbar-dark fixed-top" style="background-color: #285172 !important;">
+        <nav class="navbar navbar-landing navbar-expand-lg navbar-dark fixed-top"
+             style="background-color: #285172 !important;">
             <div class="container">
                 <a class="navbar-brand mr-auto" href="{% url 'home' %}">
                     Jayed Hoosain Jibon
@@ -105,6 +106,12 @@
             integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
             crossorigin="anonymous">
     </script>
+
+    {% block js %}
+
+    {% endblock js %}
+
+
     </body>
     </html>
 
