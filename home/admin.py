@@ -1,5 +1,11 @@
 from django.contrib import admin
-from .models import Project
+from .models import Project, AboutSkill
+from django_summernote.admin import SummernoteModelAdmin
+
+
+@admin.register(AboutSkill)
+class YourModelAdmin(SummernoteModelAdmin):
+    summernote_fields = ('description',)
 
 
 class ProjectAdmin(admin.ModelAdmin):
