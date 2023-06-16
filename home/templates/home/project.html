@@ -12,7 +12,7 @@
                     <h2>My Project</h2>
                 </div>
             </div>
-            {% if queryset %}
+            {% if queryset.exists %}
                 <div class="project-overview">
                     <div class="row justify-content-center">
                         {% for project in queryset %}

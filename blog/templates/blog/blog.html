@@ -12,7 +12,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-10 col-lg-10 col-xl-10 mb-4">
-                    {% if object_list %}
+                    {% if object_list.exists %}
                         {% for blog in object_list %}
                             <ul class="list-unstyled">
                                 <li>
