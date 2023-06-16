@@ -4,12 +4,14 @@ from django.db import models
 # Create your models here.
 
 
-class Resume(models.Model):
-    title = models.CharField(max_length=120)
-    file = models.FileField()
+class Profile(models.Model):
+    name = models.CharField(max_length=120)
+    status = models.CharField(max_length=150)
+    image = models.FileField()
+    resume = models.FileField()
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 class AboutSkill(models.Model):
