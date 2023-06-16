@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, AboutSkill,Resume
+from .models import Project, AboutSkill, Profile
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -21,11 +21,11 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 
 
-class ResumeAdmin(admin.ModelAdmin):
-    list_display = ['title']
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['name', 'status']
 
     class Meta:
-        model = Resume
+        model = Profile
 
 
-admin.site.register(Resume, ResumeAdmin)
+admin.site.register(Profile, ProfileAdmin)
