@@ -1,9 +1,13 @@
 from django.shortcuts import render
-from .models import Project, AboutSkill
+from .models import Profile, Project, AboutSkill
 
 
 def home(request):
-    return render(request, "home/index.html")
+    profile = Profile.objects.all()
+    context = {
+        "profile": profile
+    }
+    return render(request, "home/index.html", context)
 
 
 def about(request):

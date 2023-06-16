@@ -7,14 +7,39 @@
     <section id="home-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <img class="profile-img" src="{% static 'images/profile/profile.png' %}" alt="Edwin E. Exemplar">
-                    <div class="intro-text">
-                        <span class="name">Jayed Hossain Jibon</span>
-                        <hr>
-                        <span class="skills">Software Engineer in Belaface Limited</span>
+                {% if profile.exists %}
+                    {% for p in profile %}
+                        <div class="col-lg-12">
+                            {% if p.image %}
+                                <img class="profile-img" src="{{ p.image.url }}" alt="Jibon Ahmed">
+                            {% else %}
+                                <img class="profile-img" src="{% static 'images/profile/profile.png' %}"
+                                     alt="Jibon Ahmed">
+                            {% endif %}
+                            <div class="intro-text">
+                                <span class="name">{{ p.name }}</span>
+                                <hr>
+                                <span class="skills">{{ p.status }}</span>
+                            </div>
+                            <h2 class="text-center">
+                                <a href="{{ p.resume.url }}" class="btn btn-outline-primary">Download Resume</a>
+                            </h2>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-lg-12">
+                        <img class="profile-img" src="{% static 'images/profile/profile.png' %}"
+                             alt="Jibon Ahmed">
+                        <div class="intro-text">
+                            <span class="name">Jayed Hossain Jibon</span>
+                            <hr>
+                            <span class="skills">Software Engineer in Belaface Limited</span>
+                        </div>
+                        <h2 class="text-center">
+                            <a href="#" class="btn btn-outline-primary">Download Resume</a>
+                        </h2>
                     </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </section>
