@@ -1,1 +1,0 @@
-https://stackoverflow.com/questions/72264677/how-can-i-implement-notifications-system-in-django
