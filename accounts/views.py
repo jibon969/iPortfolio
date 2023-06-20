@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth import authenticate, login, logout
 
+
 # Create your views
 def register_view(request):
     if request.method == "POST":
@@ -34,3 +35,9 @@ def login_view(request):
     else:
         form = LoginForm()
     return render(request, "accounts/login.html", {"form": form})
+
+
+def logout_view(request):
+    messages.add_message(request, messages.WARNING, "You have successfully logged out!")
+    logout(request)
+    return redirect('home')
