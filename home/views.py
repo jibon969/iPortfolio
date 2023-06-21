@@ -24,4 +24,3 @@ def project(request):
         'queryset': queryset
     }
     return render(request, 'home/project.html', context)
-
