@@ -1,0 +1,32 @@
+{% extends 'accounts/base_account.html' %}
+{% block title %} Activation Error {{ block.super }}  {% endblock title %}
+
+{% block content %}
+
+    <div id="main-section">
+        <div class="container">
+            <h3 class="text-center font-weight-bold mt-3">
+                <a href="{% url 'home' %}">
+                    Simple <span class="limited">Complex</span>
+                </a>
+            </h3>
+            <div class='row'>
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                    {% if key %}
+                        <h1 class='my-5 py-5'>Activation Error. Please try again.</h1>
+                    {% else %}
+                        <h1 class='my-5 py-5'>Re-activate your Email Below.</h1>
+                    {% endif %}
+                </div>
+                <div class="col-12 text-center">
+                    <form method='POST'>{% csrf_token %}
+                        {{ form.as_p }}
+                        <input class='btn btn-default' type='submit' value='Resend Activation'/>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
