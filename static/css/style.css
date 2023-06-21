@@ -16,11 +16,10 @@ Date   : 14-06-2023 at 12.29Pm
     9. Footer Section
 */
 
-
 /*====================================
     1. General Section
 ===================================-*/
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -35,7 +34,6 @@ body {
 html, body {
     height: 100%;
 }
-
 
 /*=====================================
     2. Navbar Section
@@ -97,6 +95,7 @@ html, body {
     display: block;
     margin: 0 auto 20px;
 }
+
 #home-section img {
     vertical-align: middle;
 }
@@ -104,6 +103,7 @@ html, body {
 .intro-text {
     margin-bottom: 30px;
 }
+
 .name {
     font-size: 2.25em;
     display: block;
@@ -207,7 +207,8 @@ html, body {
     margin: 15px 0;
     text-align: center;
 }
-.blog-list:hover{
+
+.blog-list:hover {
     /* background-color: #303030; */
     background-color: gold;
     padding: 10px;
@@ -219,7 +220,7 @@ html, body {
     6. Blog Details
 ==============================*/
 
-#blog-detail-section{
+#blog-detail-section {
     padding-top: 4.5rem;
 }
 
@@ -443,7 +444,6 @@ html, body {
     top: -0.3rem
 }
 
-
 /*=============================
     8. Contact Section
 ==============================*/
@@ -474,7 +474,7 @@ html, body {
     padding-top: 7.5rem;
 }
 
-footer{
+footer {
     background-color: #343a40;
     color: white;
 }
@@ -576,4 +576,12 @@ footer{
     color: black;
     background: #fefefe;
     border-color: black;
+}
+
+#div-center {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

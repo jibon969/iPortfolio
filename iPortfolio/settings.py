@@ -21,6 +21,12 @@ INSTALLED_APPS = [
     'django_summernote',
 ]
 
+AUTH_USER_MODEL = 'accounts.User'
+LOGIN_URL = '/login/'
+LOGIN_URL_REDIRECT = '/'
+LOGOUT_URL = '/logout/'
+LOGOUT_REDIRECT_URL = '/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
