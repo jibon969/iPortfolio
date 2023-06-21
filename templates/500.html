@@ -1,22 +1,24 @@
-{% extends "base.html" %}
+{% extends "accounts/base_account.html" %}
 
-{% block title %}Server Error Occurred - {{ block.super }}{% endblock %}
+{% block title %}Server Error Occurred {{ block.super }}{% endblock %}
 
 {% block content %}
 
-    <section style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <section id="main-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div class="errorPag">
                         <h1 class="text-center" style="font-size: 180px">
-                            <span style="color: #0c5460">5</span><span>0</span><span style="color: #0c5460">0</span>
+                            <span style="color: #e13767">500</span>
                         </h1>
                         <h3 class="text-center mb-3">
                             <i class="fa fa-warning text-warning"></i>
                             Oops. Sorry. A Server Error Occurred
                         </h3>
-                        <h5 class="text-center mb-5">500 Error | We have been notified and are working on a fix. </h5>
+                        <h5 class="text-center mb-5">
+                            500 Error | We have been notified and are working on a fix.
+                        </h5>
                     </div>
                 </div>
             </div>
