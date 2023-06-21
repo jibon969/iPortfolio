@@ -1,10 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'accounts/base_account.html' %}
+{% block title %} Login in {{ block.super }} {% endblock title %}
+{% block content %}
 
-</body>
-</html>
+    <!------- Sign in page ------>
+    <section id="main-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-sm-8 col-md-9 col-lg-4 col-xl-4">
+                    <!-- Message -->
+                    <div class="text-center">
+                        {% if messages %}
+                            <div class="alert alert-success messages alert-dismissable">
+                                {% for message in messages %}
+                                    <button type="button"{% if message.tags %}
+                                            class="{{ message.tags }} close"{% endif %}
+                                            data-dismiss="alert" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                                    {{ message }}<br/>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="card">
+                        <h3 class="text-center pt-3 font-weight-bold">
+                            <a href="{% url 'home' %}">
+                                Jayed<span class="my-1 mx-1">Hossain</span>Jibon
+                            </a>
+                        </h3>
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Email" name="email">
+                                </div>
+                                <!-- Password -->
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-lock"></i>
+                                        </span>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <h2>
+                                            <button type="submit" class="btn btn-primary">Sign In</button>
+                                        </h2>
+                                        <div class="login_create_account">
+                                            <div class="float-left">
+                                                <a href="#">Forgot password?</a>
+                                            </div>
+                                            <div class="float-right">
+                                                <a href="#">Create an account</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ End Login Section --->
+
+{% endblock content %}
