@@ -11,15 +11,20 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('register/', register_view, name='register'),
     path('logout/', logout_view, name='logout'),
+
+    path('settings/register/done/', auth_views.PasswordChangeDoneView.as_view(
+    template_name='accounts/register/password_change_done.html'), name='password_change_done'),
+
     # # For email confirm & activation
     # re_path(r'^email/confirm/(?P<key>[0-9A-Za-z]+)/$', AccountEmailActivateView.as_view(), name='email-activate'),
     # re_path(r'^email/resend-activation/$', AccountEmailActivateView.as_view(), name='resend-activation'),
 
-    # # Password Reset urls.py
-    # path('reset/', auth_views.PasswordResetView.as_view(
-    #     template_name='accounts/register/password_reset.html',
-    #     email_template_name='accounts/register/password_reset_email.html',
-    #     subject_template_name='accounts/register/password_reset_subject.txt'), name='password_reset'),
+    # Password Reset urls.py
+    path('reset/', auth_views.PasswordResetView.as_view(
+        template_name='accounts/register/password_reset.html',
+        email_template_name='accounts/register/password_reset_email.html',
+        subject_template_name='accounts/register/password_reset_subject.txt'), name='password_reset'),
+        
     # path('reset/done/', auth_views.PasswordResetDoneView.as_view(
     #     template_name='accounts/register/password_reset_done.html'), name='password_reset_done'),
     # path('register-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
@@ -28,6 +33,5 @@ urlpatterns = [
     #     template_name='accounts/register/password_reset_complete.html'), name='password_reset_complete'),
     # path('settings/register/', auth_views.PasswordChangeView.as_view(
     #     template_name='accounts/register/password_change.html'), name='password_change'),
-    # path('settings/register/done/', auth_views.PasswordChangeDoneView.as_view(
-    #     template_name='accounts/register/password_change_done.html'), name='password_change_done'),
+   
 ]
