@@ -1,12 +1,9 @@
-from .utils import unique_key_generator
+from bela_info.utils import unique_key_generator
 from datetime import timedelta
 from django.core.mail import send_mail
 from django.db import models
 from django.contrib.auth.models import (
-    BaseUserManager,
-    AbstractBaseUser,
-    PermissionsMixin,
-    AbstractUser
+    BaseUserManager, AbstractBaseUser, PermissionsMixin, AbstractUser
 )
 from django.db.models import Q
 from django.template.loader import get_template
@@ -19,7 +16,7 @@ DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None, first_name=None, last_name=None, date_of_birth=None, gender=None,
+    def create_user(self, email, password=None, first_name=None, last_name=None, dob=None, gender=None,
                     contact_number=None):
         """
         Creates and saves a User with the given email and password.
@@ -31,7 +28,7 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             first_name=first_name,
             last_name=last_name,
-            date_of_birth=date_of_birth,
+            dob=dob,
             gender=gender,
             contact_number=contact_number
         )
@@ -41,7 +38,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_staff_user(self, email, password, first_name, last_name, date_of_birth, gender, contact_number):
+    def create_staff_user(self, email, password, first_name, last_name, dob, gender, contact_number):
         """
         Creates and saves a staff user with the given email and password.
         """
@@ -50,7 +47,7 @@ class UserManager(BaseUserManager):
             password=password,
             first_name=first_name,
             last_name=last_name,
-            date_of_birth=date_of_birth,
+            dob=dob,
             gender=gender,
             contact_number=contact_number
         )
@@ -59,7 +56,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password, first_name, last_name, date_of_birth, gender, contact_number):
+    def create_superuser(self, email, password, first_name, last_name, dob, gender, contact_number):
         """
         Creates and saves a superuser with the given email and password.
         """
@@ -68,7 +65,7 @@ class UserManager(BaseUserManager):
             password=password,
             first_name=first_name,
             last_name=last_name,
-            date_of_birth=date_of_birth,
+            dob=dob,
             gender=gender,
             contact_number=contact_number
         )
@@ -88,13 +85,13 @@ class User(AbstractUser):
         ('M', 'Male'),
         ('F', 'Female'),
     ]
-    date_of_birth = models.DateField(auto_now_add=False)
+    dob = models.DateField(auto_now_add=False, verbose_name='Date of Birth')
     contact_number = models.CharField(max_length=15, verbose_name='Contact Number')
     gender = models.CharField(max_length=1, choices=GENDER)
     # notice the absence of a "Password field", that's built in.
     USERNAME_FIELD = 'email'
     # Email & Password are required by default.
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'date_of_birth', 'gender', 'contact_number']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'dob', 'gender', 'contact_number']
 
     objects = UserManager()
 
@@ -166,57 +163,57 @@ class EmailActivation(models.Model):
             return True
         return True
 
-    def regenerate(self):
-        self.key = None
-        self.save()
-        if self.key is not None:
-            return True
-        return False
-
-    def send_activation(self):
-        if not self.activated and not self.forced_expired:
-            if self.key:
-                try:
-                    base_url = getattr(settings, 'BASE_URL', 'http://127.0.0.1:8000/')
-                except:
-                    base_url = getattr(settings, 'BASE_URL', 'http://127.0.0.1:8000/')
-
-                key_path = reverse("email-activate", kwargs={'key': self.key})  # use reverse
-                path = "{base}{path}".format(base=base_url, path=key_path)
-                context = {
-                    'path': path,
-                    'email': self.email,
-                    'name': self.user.first_name + ' ' + self.user.last_name
-                }
-                txt_ = get_template("accounts/email/verify.txt").render(context)
-                html_ = get_template("accounts/email/verify.html").render(context)
-                subject = '1-Click Email Verification'
-                from_email = settings.DEFAULT_FROM_EMAIL
-                recipient_list = [self.email]
-                sent_mail = send_mail(
-                    subject,
-                    txt_,
-                    from_email,
-                    recipient_list,
-                    html_message=html_,
-                )
-                return sent_mail
-        return True
-
-
-def pre_save_email_activation(sender, instance, *args, **kwargs):
-    if not instance.activated and not instance.forced_expired:
-        if not instance.key:
-            instance.key = unique_key_generator(instance)
+    # def regenerate(self):
+    #     self.key = None
+    #     self.save()
+    #     if self.key is not None:
+    #         return True
+    #     return False
+    #
+    # def send_activation(self):
+    #     if not self.activated and not self.forced_expired:
+    #         if self.key:
+    #             try:
+    #                 base_url = getattr(settings, 'BASE_URL', 'http://127.0.0.1:8000/')
+    #             except:
+    #                 base_url = getattr(settings, 'BASE_URL', 'http://127.0.0.1:8000/')
+    #
+    #             key_path = reverse("email-activate", kwargs={'key': self.key})  # use reverse
+    #             path = "{base}{path}".format(base=base_url, path=key_path)
+    #             context = {
+    #                 'path': path,
+    #                 'email': self.email,
+    #                 'name': self.user.first_name + ' ' + self.user.last_name
+    #             }
+    #             txt_ = get_template("accounts/email/verify.txt").render(context)
+    #             html_ = get_template("accounts/email/verify.html").render(context)
+    #             subject = '1-Click Email Verification'
+    #             from_email = settings.DEFAULT_FROM_EMAIL
+    #             recipient_list = [self.email]
+    #             sent_mail = send_mail(
+    #                 subject,
+    #                 txt_,
+    #                 from_email,
+    #                 recipient_list,
+    #                 html_message=html_,
+    #             )
+    #             return sent_mail
+    #     return True
 
 
-pre_save.connect(pre_save_email_activation, sender=EmailActivation)
-
-
-def post_save_user_create_receiver(sender, instance, created, *args, **kwargs):
-    if created:
-        obj = EmailActivation.objects.create(user=instance, email=instance.email)
-        obj.send_activation()
-
-
-post_save.connect(post_save_user_create_receiver, sender=User)
+# def pre_save_email_activation(sender, instance, *args, **kwargs):
+#     if not instance.activated and not instance.forced_expired:
+#         if not instance.key:
+#             instance.key = unique_key_generator(instance)
+#
+#
+# pre_save.connect(pre_save_email_activation, sender=EmailActivation)
+#
+#
+# def post_save_user_create_receiver(sender, instance, created, *args, **kwargs):
+#     if created:
+#         obj = EmailActivation.objects.create(user=instance, email=instance.email)
+#         obj.send_activation()
+#
+#
+# post_save.connect(post_save_user_create_receiver, sender=User)

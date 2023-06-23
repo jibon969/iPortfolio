@@ -11,7 +11,7 @@ User = get_user_model()
 class RegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
-    date_of_birth = forms.DateField(input_formats=['%Y-%m-%d'])
+    dob = forms.DateField(input_formats=['%Y-%m-%d'])
 
     class Meta:
         model = User
@@ -21,8 +21,8 @@ class RegisterForm(forms.ModelForm):
             'email',
             'contact_number',
             'gender',
-            'date_of_birth'
-        ]
+            'dob'
+            ]
 
     def clean_email(self):
         # print('cleaning mail')
@@ -41,14 +41,14 @@ class RegisterForm(forms.ModelForm):
             raise forms.ValidationError("Passwords don't match")
         return password2
 
-    def clean_date_of_birth(self):
-        born = self.cleaned_data.get("date_of_birth")
+    def clean_dob(self):
+        born = self.cleaned_data.get("dob")
         # print(born)
         today = date.today()
         age = today.year - born.year - ((today.month, today.day) < (born.month, born.day))
         # print(age)
-        if age < 10:
-            raise forms.ValidationError("You Must be 10 +!")
+        if age < 13:
+            raise forms.ValidationError("You Must be 13!")
         return born
 
     def save(self, commit=True):
