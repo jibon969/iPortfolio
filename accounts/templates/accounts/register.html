@@ -5,7 +5,7 @@
     <section id="main-section">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                <div class="col-sm-8 col-md-4 col-lg-4 col-xl-4">
                     <!-- Message -->
                     <div class="text-center">
                         {% if messages %}
@@ -22,13 +22,13 @@
                             </div>
                         {% endif %}
                     </div>
-                    <h3 class="text-center my-3 font-weight-bold">
-                        <a href="{% url 'home' %}">
-                            Jayed Hossain Jibon
-                        </a>
-                    </h3>
                     <div class="card">
-                        <div class="card-body mt-1 pb-0">
+                        <h3 class="text-center mt-3 font-weight-bold">
+                            <a href="{% url 'home' %}">
+                                Jayed Hossain Jibon
+                            </a>
+                        </h3>
+                        <div class="card-body pb-2">
                             <!-- Signup form --->
                             <form method="POST">{% csrf_token %}
                                 <div class="form-row">
