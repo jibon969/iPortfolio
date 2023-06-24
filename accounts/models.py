@@ -1,9 +1,12 @@
-from bela_info.utils import unique_key_generator
+from .utils import unique_key_generator
 from datetime import timedelta
 from django.core.mail import send_mail
 from django.db import models
 from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser, PermissionsMixin, AbstractUser
+    BaseUserManager,
+    AbstractBaseUser,
+    PermissionsMixin,
+    AbstractUser
 )
 from django.db.models import Q
 from django.template.loader import get_template
@@ -199,7 +202,6 @@ class EmailActivation(models.Model):
     #             )
     #             return sent_mail
     #     return True
-
 
 # def pre_save_email_activation(sender, instance, *args, **kwargs):
 #     if not instance.activated and not instance.forced_expired:
