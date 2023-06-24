@@ -19,7 +19,7 @@ DEFAULT_ACTIVATION_DAYS = getattr(settings, 'DEFAULT_ACTIVATION_DAYS', 7)
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None, first_name=None, last_name=None, dob=None, gender=None,
+    def create_user(self, email, password=None, first_name=None, last_name=None, date_of_birth=None, gender=None,
                     contact_number=None):
         """
         Creates and saves a User with the given email and password.
@@ -31,7 +31,7 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             first_name=first_name,
             last_name=last_name,
-            dob=dob,
+            date_of_birth=date_of_birth,
             gender=gender,
             contact_number=contact_number
         )
@@ -41,7 +41,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_staff_user(self, email, password, first_name, last_name, dob, gender, contact_number):
+    def create_staff_user(self, email, password, first_name, last_name, date_of_birth, gender, contact_number):
         """
         Creates and saves a staff user with the given email and password.
         """
@@ -50,7 +50,7 @@ class UserManager(BaseUserManager):
             password=password,
             first_name=first_name,
             last_name=last_name,
-            dob=dob,
+            date_of_birth=date_of_birth,
             gender=gender,
             contact_number=contact_number
         )
@@ -59,7 +59,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password, first_name, last_name, dob, gender, contact_number):
+    def create_superuser(self, email, password, first_name, last_name, date_of_birth, gender, contact_number):
         """
         Creates and saves a superuser with the given email and password.
         """
@@ -68,7 +68,7 @@ class UserManager(BaseUserManager):
             password=password,
             first_name=first_name,
             last_name=last_name,
-            dob=dob,
+            date_of_birth=date_of_birth,
             gender=gender,
             contact_number=contact_number
         )
@@ -88,7 +88,7 @@ class User(AbstractUser):
         ('M', 'Male'),
         ('F', 'Female'),
     ]
-    dob = models.DateField(auto_now_add=False, verbose_name='Date of Birth')
+    date_of_birth = models.DateField(auto_now_add=False)
     contact_number = models.CharField(max_length=15, verbose_name='Contact Number')
     gender = models.CharField(max_length=1, choices=GENDER)
     # notice the absence of a "Password field", that's built in.
