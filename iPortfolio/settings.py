@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd party library
     'django_summernote',
+    'django_email_verification',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
