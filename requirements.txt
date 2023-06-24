@@ -3,6 +3,7 @@ bleach==4.1.0
 Django==3.2.19
 django-summernote==0.8.20.0
 packaging==21.3
+psycopg2==2.9.6
 pyparsing==3.0.7
 pytz==2023.3
 six==1.16.0
