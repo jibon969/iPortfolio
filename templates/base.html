@@ -20,7 +20,7 @@
     <body>
 
     <header class="section-header">
-        <nav class="navbar navbar-landing navbar-expand-lg navbar-dark fixed-top"
+        <nav class="navbar navbar-landing navbar-expand-lg navbar-dark" id="header"
              style="background-color: #285172 !important;">
             <div class="container">
                 <a class="navbar-brand mr-auto" href="{% url 'home' %}">
@@ -118,9 +118,20 @@
             crossorigin="anonymous">
     </script>
 
-    {% block js %}
 
-    {% endblock js %}
+    <script>
+        window.onscroll = function() {myFunction()};
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+        
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+        }
+    </script>
 
 
     </body>
