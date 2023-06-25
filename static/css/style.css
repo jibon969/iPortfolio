@@ -44,7 +44,7 @@ html, body {
 }
 
 .navbar {
-    background: #000000
+    background: #000000;
 }
 
 .nav-item::after {
@@ -78,6 +78,7 @@ html, body {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: -999999px;
   }
   
   .sticky + .content {
@@ -256,7 +257,7 @@ html, body {
 ==============================*/
 
 #blog-section {
-    padding-top: .5rem;
+    padding-top: 4.5rem;
 }
 
 .blog-header {
@@ -288,7 +289,7 @@ html, body {
 ==============================*/
 
 #blog-detail-section {
-    padding-top: .5rem;
+    padding-top: 4.5rem;
 }
 
 .blog-detail-header {
@@ -464,7 +465,7 @@ html, body {
 ==============================*/
 
 #project-section {
-    padding-top: .5rem;
+    padding-top: 4.5rem;
 }
 
 .project-header {
@@ -515,7 +516,7 @@ html, body {
     8. Contact Section
 ==============================*/
 #contact-section {
-    padding: .5rem;
+    padding: 4.5rem;
 }
 
 .contact-header {
