@@ -94,7 +94,7 @@ class User(AbstractUser):
     # notice the absence of a "Password field", that's built in.
     USERNAME_FIELD = 'email'
     # Email & Password are required by default.
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'dob', 'gender', 'contact_number']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'date_of_birth', 'gender', 'contact_number']
 
     objects = UserManager()
 
