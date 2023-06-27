@@ -38,7 +38,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.add_message(request, messages.WARNING, "You are successfully logout !")
-    return redirect('accounts:login')
+    return redirect('login')
 
 
 def profile_view(request):
