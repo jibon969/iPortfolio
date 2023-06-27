@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import User
+from .models import User, EmailActivation
+
+
 # Register your models here.
 
 
@@ -14,3 +16,14 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(User, UserAdmin)
 
+
+class EmailActivationAdmin(admin.ModelAdmin):
+    list_display = ['user', 'email']
+    list_per_page = 20
+    search_fields = ['email']
+
+    class Meta:
+        model = EmailActivation
+
+
+admin.site.register(EmailActivation, EmailActivationAdmin)

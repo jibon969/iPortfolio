@@ -2,26 +2,6 @@
 {% block title %} Profile {{ block.super }} {% endblock title %}
 {% block content %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <a href="{% url 'registration' %}">Register</a>
-                <br>
-                <a href="{% url 'login' %}">login</a>
-                <br>
-                <a href="{% url 'logout' %}">logout</a>
-                <br>
-                <a href="{% url 'password_change' %}">password_change</a>
-                <br>
-                <a href="{% url 'password_change_done' %}">password_change_done</a>
-                <br>
-                <a href="{% url 'password_reset' %}">password_reset</a>
-                <br>
-                <a href="{% url 'password_reset_complete' %}">password_reset_complete</a>
-                <a href="{% url 'password_reset_done' %}">password_reset_done</a>
-            </div>
-        </div>
-    </div>
 
     <section id="main-section">
         <div class="container">
@@ -49,12 +29,10 @@
                         </a>
                     </h3>
                     <div class="card">
-                        <h5 class="text-center mt-3">
+                        <h5 class="text-center">
                             {% if user.profile_picture %}
                                 <img src="{{ user.profile_picture.url }}" height="130" width="130"
-                                     class="rounded-circle">
-                            {% else %}
-                                <p>No Image</p>
+                                     class="rounded-circle mt-3">
                             {% endif %}
                         </h5>
                         <div class="card-body">
