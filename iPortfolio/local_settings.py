@@ -5,7 +5,7 @@ SECRET_KEY = 'Jayed-Hossain-Jibon'
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-BASE_URL = "http://127.0.0.1:8000/"
+BASE_URL = "http://127.0.0.1:8000"
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -44,7 +44,7 @@ EMAIL_MAIL_HTML = 'registration/mail_body.html'
 EMAIL_MAIL_PLAIN = 'registration/mail_body.txt'
 EMAIL_MAIL_TOKEN_LIFE = 60 * 60
 EMAIL_MAIL_PAGE_TEMPLATE = 'registration/confirm_template.html'
-EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000/' # Host
+EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000/'  # Host
 # EMAIL_MULTI_USER = True  # optional (defaults to False)
 
 

@@ -1,13 +1,18 @@
-from django.urls import path
+from django.urls import path, re_path
 from django.contrib.auth import views as auth_views
-from . import views
-
+from .views import (
+    register_view,
+    logout_view,
+    login_view,
+    profile_view,
+    AccountEmailActivateView
+)
 
 urlpatterns = [
-    path('registration/', views.register_view, name='registration'),
-    path('login/', views.login_view, name='login'),
-    path('logout/', views.logout_view, name='logout'),
-    path('profile/', views.profile_view, name='profile'),
+    path('registration/', register_view, name='registration'),
+    path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
+    path('profile/', profile_view, name='profile'),
 
     # Change Password !
     path('password_change/', auth_views.PasswordChangeView.as_view(
@@ -28,5 +33,9 @@ urlpatterns = [
         template_name='accounts/registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('password_reset_complete', auth_views.PasswordResetCompleteView.as_view(
         template_name='accounts/registration/password_reset_complete.html'), name='password_reset_complete'),
+
+    # For email confirm & activation
+    re_path(r'^email/confirm/(?P<key>[0-9A-Za-z]+)/$', AccountEmailActivateView.as_view(), name='email-activate'),
+    re_path(r'^email/resend-activation/$', AccountEmailActivateView.as_view(), name='resend-activation'),
 
 ]
