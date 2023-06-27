@@ -42,6 +42,7 @@ docs/_build/
 __pycache__
 __pycache__/
 migrations/
+media/
 
 
 *.so
