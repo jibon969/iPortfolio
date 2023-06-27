@@ -42,18 +42,22 @@ def logout_view(request):
 
 
 def profile_view(request):
-    form = UserProfileForm(instance=request.user)
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=request.user)
-        if form.is_valid():
-            profile = form.save(commit=False)  # Create unsaved instance
-            # Modify the profile if needed
-            # For example: profile.bio = form.cleaned_data['bio']
-            profile.save()  # Save the modified profile
-            messages.success(request, 'Profile successfully updated')
-            return redirect('home')
-    context = {
-        'form': form,
-        'user': request.user
-    }
-    return render(request, 'accounts/profile.html', context)
+    if request.user.is_authenticated:
+        form = UserProfileForm(instance=request.user)
+        if request.method == 'POST':
+            form = UserProfileForm(request.POST, request.FILES, instance=request.user)
+            if form.is_valid():
+                profile = form.save(commit=False)  # Create unsaved instance
+                # Modify the profile if needed
+                # For example: profile.bio = form.cleaned_data['bio']
+                profile.save()  # Save the modified profile
+                messages.success(request, 'Profile successfully updated')
+                return redirect('home')
+        context = {
+            'form': form,
+            'user': request.user
+        }
+        return render(request, 'accounts/profile.html', context)
+    else:
+        messages.success(request, 'Create an account')
+        return redirect('login')

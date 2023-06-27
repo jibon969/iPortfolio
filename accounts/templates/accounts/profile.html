@@ -2,6 +2,26 @@
 {% block title %} Profile {{ block.super }} {% endblock title %}
 {% block content %}
 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'registration' %}">Register</a>
+                <br>
+                <a href="{% url 'login' %}">login</a>
+                <br>
+                <a href="{% url 'logout' %}">logout</a>
+                <br>
+                <a href="{% url 'password_change' %}">password_change</a>
+                <br>
+                <a href="{% url 'password_change_done' %}">password_change_done</a>
+                <br>
+                <a href="{% url 'password_reset_complete' %}">password_reset_complete</a>
+                <br>
+                <a href="{% url 'password_reset_done' %}">password_reset_done</a>
+            </div>
+        </div>
+    </div>
+
     <section id="main-section">
         <div class="container">
             <div class="row justify-content-center">

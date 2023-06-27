@@ -19,8 +19,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 3rd party library
     'django_summernote',
+    'crispy_forms',
 ]
 
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = '/login/'
 LOGIN_URL_REDIRECT = '/'

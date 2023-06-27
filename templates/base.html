@@ -46,14 +46,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                         </li>
-                        <a href="{% url 'accounts:profile' %}">Profile</a>
+                        <a href="{% url 'profile' %}">Profile</a>
                         {% if request.user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'accounts:login' %}">Login</a>
+                                <a class="nav-link" href="{% url 'login' %}">Login</a>
                             </li>
                         {% endif %}
                     </ul>
