@@ -44,7 +44,7 @@ html, body {
 }
 
 .navbar {
-    background: #000000
+    background: #000000;
 }
 
 .nav-item::after {
@@ -74,6 +74,73 @@ html, body {
     color: #fefefe !important;
 }
 
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -999999px;
+  }
+  
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+  .header-top{
+    background-color: white;
+    color: black;
+    padding: 7px
+  }
+/*------------------------
+    Social Icon
+-------------------------*/
+.social-icon ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    padding: 0; 
+  }
+    
+  .social-icon ul li {
+    list-style-type: none;
+    margin-right: 20px; 
+  }
+    
+  .social-icon ul li a {
+    font-size: 14px;
+    color: black !important; 
+    display: block; 
+  }
+    
+  .social-icon ul li a:hover {
+    color: #a61d37; 
+  }
+    
+  .social-icon ul li:last-child {
+    margin-right: 0; 
+  }
+    
+  .social-icon.social-icon-style-02 ul {
+    padding-left: 0; 
+  }
+    
+  .social-icon.social-icon-style-02 ul li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 10px; 
+  }
+    
+  .social-icon.social-icon-style-02 ul li a {
+    background: #ffffff;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    color: #1a2844;
+  }
+    
+  .social-icon.social-icon-style-02 ul li a:hover {
+    color: #ffffff;
+    background: #a61d37;
+  }
 
 /*=============================
     3. Home Section
@@ -449,7 +516,7 @@ html, body {
     8. Contact Section
 ==============================*/
 #contact-section {
-    padding: 5rem;
+    padding: 4.5rem;
 }
 
 .contact-header {
