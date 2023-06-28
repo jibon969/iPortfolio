@@ -5,7 +5,7 @@ from .views import (
     logout_view,
     login_view,
     profile_view,
-    AccountEmailActivateView
+    # AccountEmailActivateView
 )
 
 urlpatterns = [
@@ -35,7 +35,7 @@ urlpatterns = [
         template_name='accounts/registration/password_reset_complete.html'), name='password_reset_complete'),
 
     # For email confirm & activation
-    re_path(r'^email/confirm/(?P<key>[0-9A-Za-z]+)/$', AccountEmailActivateView.as_view(), name='email-activate'),
-    re_path(r'^email/resend-activation/$', AccountEmailActivateView.as_view(), name='resend-activation'),
+    # re_path(r'^email/confirm/(?P<key>[0-9A-Za-z]+)/$', AccountEmailActivateView.as_view(), name='email-activate'),
+    # re_path(r'^email/resend-activation/$', AccountEmailActivateView.as_view(), name='resend-activation'),
 
 ]
