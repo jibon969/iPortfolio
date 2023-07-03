@@ -11,7 +11,6 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'contact.apps.ContactConfig',
     'accounts.apps.AccountsConfig',
-    'comments.apps.CommentsConfig',
     # Default App
     'django.contrib.admin',
     'django.contrib.auth',
