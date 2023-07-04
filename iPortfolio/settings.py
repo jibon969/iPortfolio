@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'contact.apps.ContactConfig',
     'accounts.apps.AccountsConfig',
+    'notifications.apps.NotificationsConfig',
     # Default App
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,7 +23,6 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
 ]
-
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'accounts.User'
