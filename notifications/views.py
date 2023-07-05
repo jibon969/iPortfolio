@@ -13,4 +13,8 @@ def notification_list(request):
         return redirect('home')
 
 
-
+def delete_notification(request, id):
+    obj = get_object_or_404(Notification, pk=id)
+    obj.delete()
+    messages.add_message(request, messages.WARNING, "Successfully delete notification !")
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
