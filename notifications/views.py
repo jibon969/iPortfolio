@@ -7,7 +7,10 @@ from django.contrib import messages
 def notification_list(request):
     if request.user.is_authenticated and request.user.is_staff:
         notifications = Notification.objects.filter(user=request.user).order_by('-id')
-        return render(request, 'notification/notification.html', {'notifications': notifications})
+        context = {
+            'notifications': notifications
+        }
+        return render(request, 'notification/notification.html', context)
     else:
         messages.add_message(request, messages.WARNING, "Sorry currently you don't have permission to access this file")
         return redirect('home')
