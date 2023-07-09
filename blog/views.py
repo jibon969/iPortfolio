@@ -20,6 +20,11 @@ from .forms import (
 
 
 def blog(request):
+    """
+    Blog View
+    :param request:
+    :return:
+    """
     queryset = Blog.objects.all()
     search = request.GET.get('q')
     if search:
@@ -49,6 +54,12 @@ def blog(request):
 
 
 def blog_detail(request, slug):
+    """
+    Blog Details
+    :param request:
+    :param slug:
+    :return:
+    """
     post = get_object_or_404(Blog, slug=slug)
     category = get_object_or_404(Category, slug=slug)
     related_post = Blog.objects.filter(category=category)

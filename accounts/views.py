@@ -15,6 +15,11 @@ from .forms import ActivateEmailForm
 
 
 def register_view(request):
+    """
+    User registration view
+    :param request:
+    :return:
+    """
     if request.method == "POST":
         form = RegisterForm(request.POST or None)
         if form.is_valid():
@@ -27,6 +32,11 @@ def register_view(request):
 
 
 def login_view(request):
+    """
+    Login view
+    :param request:
+    :return:
+    """
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
