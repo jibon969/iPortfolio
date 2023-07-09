@@ -3,7 +3,7 @@ from .models import Profile, Project, AboutSkill
 
 
 def home(request):
-    profile = Profile.objects.all()
+    profile = Profile.objects.all()[:1]
     context = {
         "profile": profile
     }
@@ -11,7 +11,7 @@ def home(request):
 
 
 def about(request):
-    about_skill = AboutSkill.objects.all()
+    about_skill = AboutSkill.objects.all()[:1]
     context = {
         'about_skill': about_skill
     }
