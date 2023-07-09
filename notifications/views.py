@@ -5,6 +5,10 @@ from django.contrib import messages
 
 
 def notification_list(request):
+    """
+    :param request:
+    :return:
+    """
     if request.user.is_authenticated and request.user.is_staff:
         notifications = Notification.objects.filter(user=request.user).order_by('-id')
         context = {
@@ -17,6 +21,11 @@ def notification_list(request):
 
 
 def delete_notification(request, id):
+    """
+    :param request:
+    :param id:
+    :return:
+    """
     obj = get_object_or_404(Notification, pk=id)
     obj.delete()
     messages.add_message(request, messages.WARNING, "Successfully delete notification !")

@@ -3,6 +3,10 @@ from .models import Profile, Project, AboutSkill
 
 
 def home(request):
+    """
+    :param request:
+    :return:
+    """
     profile = Profile.objects.all()[:1]
     context = {
         "profile": profile
@@ -11,6 +15,10 @@ def home(request):
 
 
 def about(request):
+    """
+    :param request:
+    :return:
+    """
     about_skill = AboutSkill.objects.all()[:1]
     context = {
         'about_skill': about_skill
@@ -19,6 +27,10 @@ def about(request):
 
 
 def project(request):
+    """
+    :param request:
+    :return:
+    """
     queryset = Project.objects.all()
     context = {
         'queryset': queryset
